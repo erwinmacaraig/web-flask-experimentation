@@ -1,0 +1,74 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
+  font-size: 14px;
+}
+
+h1 {
+  color: blue;
+  text-align: center;
+}
+.intro h2 {
+  text-align: center;
+}
+.entry {
+  width: 400px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+.divider h2 {
+  text-align: center;
+}
+.create {
+  width: 400px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+.entry i { 
+  position: absolute;
+}
+
+div.error {
+  text-align: center;
+}
+
+div.error p {
+  color: red;
+}
+
+div.entry-item {
+  margin: 15px 0;
+}
+
+div.entry-item > label {
+  display: block;
+}
+
+.icon {
+  padding: 18px;
+  min-width: 50px;
+  color: green;
+  text-align: center;
+}
+
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-width: thin;
+}
+
+button#next {
+  cursor: pointer;
+  border-color: transparent;
+  height: 46px;
+  width: 100%;    
+  background: #1c84c6;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+}
