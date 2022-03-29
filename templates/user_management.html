@@ -123,13 +123,18 @@
 </div>
 
 <div id="edit-frm-container">
-    <h2>Edit User Profile</h2>
+    <h2>Edit User ADB2C Profile</h2>
     <form id="modify-user">
+        <p>
+            <label>id</label><br>
+            <input type="text" id="userId" name="userId" readonly>
+        </p>
         <p>
             <label>Enable Account</label>
             <input type="radio" id="accountEnabledTrue" name="accountEnabled" value="true"><label for="accountEnabledTrue">Enable</label>
             <input type="radio" id="accountEnabledFalse" name="accountEnabled" value="false"><label for="accountEnabledFalse">Disable</label>
         </p>
+
         <p>
             <label>Display Name</label><br>
             <input type="text" id="displayName" name="displayName">
@@ -177,6 +182,7 @@
         <p>
             <button type="submit">SAVE</button>
         </p>
+
     </form>
 
 </div>

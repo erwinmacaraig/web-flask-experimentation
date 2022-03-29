@@ -17,6 +17,7 @@ function loadUser(){
      modifyFrm.elements['mobilePhone'].value = theUser[0]['mobilePhone'];
      modifyFrm.elements['officeLocation'].value = theUser[0]['officeLocation'];
      modifyFrm.elements['surnameEdit'].value = theUser[0]['surname'];
+     modifyFrm.elements['userId'].value = selectedUID;
 }
 
 modifyFrm.addEventListener('submit', (event) => {
@@ -57,6 +58,9 @@ modifyFrm.addEventListener('submit', (event) => {
     }
     if (modifyFrm.elements['mailEdit'].value.trim()) {
         user['mail'] = modifyFrm.elements['mailEdit'].value.trim()
+    }
+    if (modifyFrm.elements['userId'].value.trim()) {
+        user['userId'] = modifyFrm.elements['userId'].value.trim()
     }
 
     console.log(user);
@@ -323,8 +327,22 @@ function createADB2CUser(userObj={}){
     }
 }
 
-function editADB2CUser(userObj={}){
-
-
+function editADB2CUser(userObj){
+	fetch('https://adb2c-user-management.azurewebsites.net/api/updateUser?code=/hrm29o7ZJQAzFW4mQogQfagC16RDOPpniRzvWBJgKbSrKzvpwzADg==', {
+	     headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+	    method: 'post',
+	    body: JSON.stringify(userObj)
+	  }).then(function(response) {
+	    console.log(response);
+	    return response.json();
+	  }).then(function(data) {
+	    alert("Success!");
+     }).catch(function(e) {
+        console.log(e);
+        alert("Error!");
+     });
 
 }
