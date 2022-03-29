@@ -270,7 +270,6 @@ function deleteADB2CUser(uid='') {
     }
     xmlHttpRequest.send();
 
-
 }
 function createADB2CUser(userObj={}){
     let errorMsgs = []
