@@ -60,7 +60,7 @@ modifyFrm.addEventListener('submit', (event) => {
     }
 
     console.log(user);
-
+    editADB2CUser(user);
 
 });
 
@@ -324,23 +324,6 @@ function createADB2CUser(userObj={}){
 }
 
 function editADB2CUser(userObj={}){
-	const url = 'https://adb2c-user-management.azurewebsites.net/api/updateUser?code=/hrm29o7ZJQAzFW4mQogQfagC16RDOPpniRzvWBJgKbSrKzvpwzADg==';
-	let xmlHttpRequest = new XMLHttpRequest();
-	xmlHttpRequest.open("POST", url);
-	xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
-	xmlHttpRequest.onreadystatechange = function(){
-		if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
-			alert('User Profile Successfully Updated.');
-		}
-		if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status >= 400) {
-			alert("There was a problem updating user profile");
-        }
-	}
-	try {
-	    xmlHttpRequest.send(JSON.stringify(userObj))
-	} catch(e) {
-		console.log(e);
-		alert('Network error')
-    }
+
 
 }
