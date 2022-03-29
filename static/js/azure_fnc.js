@@ -323,8 +323,16 @@ function createADB2CUser(userObj={}){
     }
 }
 
-function editADB2CUser(userObj={}){
+function editADB2CUser(userObj){
+	http.send(JSON.stringify(userObj))
 
-
+	fetch('https://adb2c-user-management.azurewebsites.net/api/updateUser?code=/hrm29o7ZJQAzFW4mQogQfagC16RDOPpniRzvWBJgKbSrKzvpwzADg==', {
+	    method: 'post',
+	    body: JSON.stringify(userObj)
+	  }).then(function(response) {
+	    return response.json();
+	  }).then(function(data) {
+	    alert("Success!");
+  });
 
 }
