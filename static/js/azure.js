@@ -262,7 +262,7 @@ function deleteADB2CUser(uid='') {
     xmlHttpRequest.open("GET", url);
     xmlHttpRequest.onreadystatechange = function(){
         if(xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
-            alert('User Successfully Created');
+            alert('User Successfully Deleted');
         }
         if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status >= 400){
             alert('There was a problem processing request.')
@@ -305,6 +305,7 @@ function createADB2CUser(userObj={}){
             // todo: need to process result and store Azure ID to database
             console.log(xmlHttpRequest.responseText);
             alert('Azure AD User profile created successfully.')
+            document.getElementById('create-user-results').innerHTML = xmlHttpRequest.responseText;
         }
         if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status >= 400){
             // array of error messages

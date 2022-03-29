@@ -122,6 +122,23 @@ i.e. userObj {
                 streetAddress: string
                 employeeId: string
     }
+
+@returns - object
+i.e result: {
+    "@odata.context": string,
+    "id": string,
+    "businessPhones": string[],
+    "displayName": string,
+    "givenName": string,
+    "jobTitle": string,
+    "mail": string,
+    "mobilePhone": string,
+    "officeLocation": string,
+    "preferredLanguage": string,
+    "surname": string,
+    "userPrincipalName": string
+  },
+  "tempPasswd": string
 */
 function createADB2CUser(userObj={}){
     let errorMsgs = []
