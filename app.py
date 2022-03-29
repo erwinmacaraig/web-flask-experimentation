@@ -20,6 +20,11 @@ def login_page():
 def auth():
     return render_template('auth.html')
 
+@app.route('/adb2c-users')
+@cross_origin()
+def getadb2cusers():
+    return render_template('user_management.html')
+
 
 if __name__ == '__main__':
     app.run()

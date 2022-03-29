@@ -1,10 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block customjs %}
+<script type="text/javascript" src="{{url_for('static', filename='js/azure.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/scripts.js')}}"></script>
+{% endblock %}
+
+{% block customstyle %}
+<style>
+    h2, form {
+        margin: 25px;
+    }
+    button {
+        height: 40px;
+        margin-left: 25px;
+        border-radius: 4px;
+        background: orange;
+    }
+    form button {
+        margin-left: 0;
+    }
+    table {
+        width: 60%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        margin: 25px;
+    }
+    th {
+        height: 70px;
+        text-align: left;
+        padding: 15px;
+        border: 1px solid #ddd;
+    }
+    td {
+        vertical-align: bottom;
+        padding: 15px;
+        border: 1px solid #ddd;
+    }
+    tr:hover {
+        background-color: coral;
+    }
+    label {
+        padding-right: 10px;
+    }
+    div#create-user-container, div#edit-frm-container, div.misc-div {
+        border: 1px solid #ddd;
+        width: 65%;
+        margin: 25px
+    }
+    div#edit-frm-container {
+        display: none;
+    }
+    input[type="text"], input[type="email"] {
+        width: %;
+        padding: 10px;
+    }
+    select {
+        padding: 20px;
+        width: 100%;
+
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<h1>List of Azure AD B2C Users</h1>
+<p><button onclick="loadADB2CUsers()">Populate List</button></p>
+
+<!--
+<p><button onclick="createADB2User({
+'mail': 'erwin.macaraig01@gmail.com'
+})">Test Me</button></p>,
+'givenName': 'Ers',
+'surname': 'Macaraig',
+'employeeId': 'B3AFG9U' -->
+<div id="adb2c-users"></div>
+<div id="create-user-container">
+    <h2>Create User</h2>
+    <form id="create-user-frm">
+        <div>
+            <p><label>First Name</label><br><input type="text" name="givenName" id="givenname" required></p>
+        </div>
+        <div>
+            <p><label>Last Name</label><br><input type="text" name="surname" id="surname" required></p>
+        </div>
+        <div>
+            <p><label>Employee ID</label><br><input type="text" name="employeeId" id="employeeId" required></p>
+        </div>
+        <div>
+            <p><label>Email</label><br><input type="email" name="mail" id="mail" required></p>
+        </div>
+        <div>
+            <button type="submit">CREATE</button>
+        </div>
+
+
+    </form>
+
+</div>
+
+<div class="misc-div">
+    <form id="delete-frm">
+        <div>
+            <label>Azure AD B2C User ID</label>
+            <input type="text" name="azure-uid" id="azure-uid">
+            <button type="submit" value="delete" id="delete-uid">DELETE</button>
+        </div>
+    </form>
+</div>
+
+<div class="misc-div">
+    <form id="retrieve-frm">
+        <label>Azure AD B2C User ID</label>
+        <input type="text" name="azure-uid" id="retrieve-azure-uid">
+        <button type="submit" value="retrieve" id="retrieve-uid">RETRIEVE</button>
+    </form>
+</div>
+
+
+<div id="edit-user-frm-container">
+    <form id="edit-user-frm"></form>
+</div>
+
+<div id="edit-frm-container">
+    <h2>Edit User Profile</h2>
+    <form id="modify-user">
+        <p>
+            <label>Enable Account</label>
+            <input type="radio" id="accountEnabledTrue" name="accountEnabled" value="true"><label for="accountEnabledTrue">Enable</label>
+            <input type="radio" id="accountEnabledFalse" name="accountEnabled" value="false"><label for="accountEnabledFalse">Disable</label>
+        </p>
+        <p>
+            <label>Display Name</label><br>
+            <input type="text" id="displayName" name="displayName">
+        </p>
+        <p>
+            <label>First Name</label><br>
+            <input type="text" id="givenNameEdit" name="givenNameEdit">
+        </p>
+        <p>
+            <label>Last Name</label><br>
+            <input type="text" id="surnameEdit" name="surnameEdit">
+        </p>
+        <p>
+            <label>Unique ID</label><br>
+            <input type="text" id="employeeIDEdit" name="employeeIDEdit">
+        </p>
+        <p>
+            <label>Email</label><br>
+            <input type="email" id="mailEdit" name="mailEdit">
+        </p>
+        <p>
+            <label>Mobile Phone</label><br>
+            <input type="text" id="mobilePhone" name="mobilePhone">
+        </p>
+        <p>
+            <label>Office Location</label><br>
+            <input type="text" id="officeLocation" name="officeLocation">
+        </p>
+        <p>
+            <label>Job Title</label><br>
+            <input type="text" id="jobTitle" name="jobTitle">
+        </p>
+        <p>
+            <label>Department</label><br>
+            <input type="text" id="department" name="department">
+        </p>
+        <p>
+            <label>City</label><br>
+            <input type="text" id="city" name="city">
+        </p>
+        <p>
+            <label>Country</label><br>
+            <input type="text" id="country" name="country">
+        </p>
+        <p>
+            <button type="submit">SAVE</button>
+        </p>
+    </form>
+
+</div>
+
+<div style="visibility: hidden;">
+    <button onclick="getMeADog()">Test</button>
+    <img id="img-dog">
+</div>
+
+
+
+
+
+{% endblock %}
