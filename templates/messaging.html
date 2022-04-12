@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block customjs %}
+<script type="text/javascript" src="{{url_for('static', filename='js/chat_bundle.js')}}"></script>
+{% endblock %}
+
+{% block customstyle %}
+
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Welcome {{communicationUserName}}</h1>
+</div>
+<div class="main">
+
+        <input type="hidden" value="{{accessToken}}" name="accessToken" id="accessToken">
+        <input type="hidden" value="{{communicationUserId}}" name="communicationUserId" id="communicationUserId">
+        <input type="hidden" value="{{communicationUserName}}" name="communicationUserName" id="communicationUserName">
+        <input type="hidden" value="{{threadId}}" name="threadId" id="threadId">
+        <input type="hidden" value="{{intConversationUserID}}" name="intConversationUserID" id="intConversationUserID">
+        <input type="hidden" value="{{accessexpiry}}" name="accessexpiry" id="accessexpiry">
+
+
+        <div>
+                <textarea name="conversations" id="conversations"></textarea>
+        </div>
+        <div>
+                <input type="text" name="messageToSend" id="messageToSend">
+        </div>
+
+
+        <div>
+            <button type="button" id="btnSendMessage">Send</button>
+        </div>
+
+
+</div>
+{% endblock %}
