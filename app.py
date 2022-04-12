@@ -37,8 +37,8 @@ def messaging(name=None, group=None):
     # 19:D9A9Rc-ulwpZRzdSXu-RWcXIUmW-XYO9Bj8JdGLY4V41@thread.v2
     print(name)
     intPersonID = 60366
-    the_thread = '19:vEI4TBph38xJQrdNhZhxEjjOmEXGNCGDnWAu6dJJAQ01@thread.v2'
-
+    # the_thread = '19:vEI4TBph38xJQrdNhZhxEjjOmEXGNCGDnWAu6dJJAQ01@thread.v2'
+    the_thread = '19:D9A9Rc-ulwpZRzdSXu-RWcXIUmW-XYO9Bj8JdGLY4V41@thread.v2'
     if name is not None and name.lower() == 'adam':
         intPersonID = 2
         name = 'Adam'

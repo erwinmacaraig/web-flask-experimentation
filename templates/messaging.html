@@ -5,7 +5,19 @@
 {% endblock %}
 
 {% block customstyle %}
+<style>
+        textarea#conversations {
+                height: 460px;
+                width: 610px;
+        }
+        input#messageToSend {
+                width: 480px;
+        }
+        button#btnSendMessage {
+                width: 120px;
+        }
 
+</style>
 {% endblock %}
 
 {% block content %}
@@ -23,17 +35,10 @@
 
 
         <div>
-                <textarea name="conversations" id="conversations"></textarea>
+                <textarea name="conversations" id="conversations" readonly></textarea>
         </div>
         <div>
-                <input type="text" name="messageToSend" id="messageToSend">
+                <input type="text" name="messageToSend" id="messageToSend"> <button type="button" id="btnSendMessage">Send</button>
         </div>
-
-
-        <div>
-            <button type="button" id="btnSendMessage">Send</button>
-        </div>
-
-
 </div>
 {% endblock %}
