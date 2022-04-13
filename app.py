@@ -53,7 +53,7 @@ def messaging(name=None, group=None):
     # create or renew access token - http://localhost:7071/api/request-access-token
     # https://acs-chat-fnc.azurewebsites.net/api/request-access-token?code'
     #                                  '=dh2XYqzWMseCwFxxjVWHdy/h6p2kT4GevWIBW9XJWzK7yalBNwtq0A==
-    fnx_response = requests.post('http://localhost:7071/api/request-access-token',
+    fnx_response = requests.post('https://acs-chat-fnc.azurewebsites.net/api/request-access-token?code=dh2XYqzWMseCwFxxjVWHdy/h6p2kT4GevWIBW9XJWzK7yalBNwtq0A==',
                                  json={'intPersonID': intPersonID}, headers=my_req_headers)
 
     print(fnx_response.content)
